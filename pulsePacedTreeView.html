@@ -63,15 +63,17 @@
 
 
         function resize(){
-          // change stage sizes
-          stage.x = renderer.width/2;
-          stage.y = renderer.height/2;
-
           // change view size to whole screen
           renderer.view.style.position = "absolute";
           renderer.view.style.display = "block";
           renderer.autoResize = true;
           renderer.resize(window.innerWidth, window.innerHeight);
+
+          // change stage sizes
+          stage.x = renderer.width/2;
+          stage.y = renderer.height/2;
+
+
         }
 
         resize();
