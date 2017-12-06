@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title> DM2799 Project Course </title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.min.js"></script>
+    -->
+    <script src="../js/pixi.js"></script>
+  </head>
+  <body>
+     <div id="sameAsPulseTree">
+       <script>
+        // create renderer
+        var renderer = PIXI.autoDetectRenderer(256, 256, {antialias: false, transparent: false, resolution: 1}
+        );
+
+        // create a container object called the Stage
+        var stage = new PIXI.Container();
+
+        // add the canvas to the HTML document
+        document.body.appendChild(renderer.view);
+
+        // change scene background
+        renderer.backgroundColor = 0xffffff;
+
+        // create sprites
+        PIXI.loader
+          .add("../objects/tree.png")
+          .load(setup);
+
+        function setup() {
+          var tree = new PIXI.Sprite(
+            PIXI.loader.resources["../objects/tree.png"].texture
+          );
+          // add tree to stage
+          stage.addChild(tree);
+
+          //render stage
+          renderer.render(stage);
+        }
+
+        // var texture = PIXI.utils.TextureCache['..objects/tree.png'];
+        // var sprite = new PIXI.Sprite(texture);
+        // stage.addChild(sprite);
+
+        // change view size to whole screen
+        renderer.view.style.position = "absolute";
+        renderer.view.style.display = "block";
+        renderer.autoResize = true;
+        renderer.resize(window.innerWidth, window.innerHeight);
+
+
+        // tell the renderer to render the Stage
+        renderer.render(stage);
+
+
+       </script>
+     </div>
+  </body>
+</html>
