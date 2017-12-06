@@ -57,9 +57,7 @@
           renderer.autoResize = true;
           renderer.resize(window.innerWidth, window.innerHeight);
 
-          // change stage sizes
-          stage.x = renderer.width/2;
-          stage.y = renderer.height/2;
+
         }
 
         // scale to window size
@@ -67,6 +65,10 @@
           var scale = scaleToWindow(renderer.view);
 
           resize();
+          
+          // change stage sizes
+          stage.x = renderer.width/2;
+          stage.y = renderer.height/2;
 
         });
 
