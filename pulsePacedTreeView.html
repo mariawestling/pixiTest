@@ -44,6 +44,10 @@
           //render stage
           renderer.render(stage);
         }
+        // scale to window size
+        window.addEventListener("resize", function(event) {
+          var scale = scaleToWindow(renderer.view);
+        });
 
         // var texture = PIXI.utils.TextureCache['..objects/tree.png'];
         // var sprite = new PIXI.Sprite(texture);
