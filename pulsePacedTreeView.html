@@ -31,12 +31,12 @@
 
         // create sprites
         PIXI.loader
-          .add("../objects/tree.png")
+          .add("objects/tree.png")
           .load(setup);
 
         function setup() {
           var tree = new PIXI.Sprite(
-            PIXI.loader.resources["../objects/tree.png"].texture
+            PIXI.loader.resources["objects/tree.png"].texture
           );
           // add tree to stage
           stage.addChild(tree);
