@@ -53,20 +53,26 @@
         window.addEventListener("resize", function(event) {
           var scale = scaleToWindow(renderer.view);
 
-          // change stage sizes
-          stage.x = renderer.width/2;
-          stage.y = renderer.height/2;
+          resize();
+
         });
 
         // var texture = PIXI.utils.TextureCache['..objects/tree.png'];
         // var sprite = new PIXI.Sprite(texture);
         // stage.addChild(sprite);
 
-        // change view size to whole screen
-        renderer.view.style.position = "absolute";
-        renderer.view.style.display = "block";
-        renderer.autoResize = true;
-        renderer.resize(window.innerWidth, window.innerHeight);
+
+        function resize(){
+          // change stage sizes
+          stage.x = renderer.width/2;
+          stage.y = renderer.height/2;
+
+          // change view size to whole screen
+          renderer.view.style.position = "absolute";
+          renderer.view.style.display = "block";
+          renderer.autoResize = true;
+          renderer.resize(window.innerWidth, window.innerHeight);
+        }
 
 
         // tell the renderer to render the Stage
