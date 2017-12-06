@@ -39,10 +39,18 @@
             PIXI.loader.resources["objects/tree.png"].texture
           );
           // add tree to stage
-          stage.addChild(tree);
+          stage.addChild(container);
+          container.addChild(tree);
+
 
           // change size
-          tree.setTransform(0, 0, 0.6, 0.6);
+          container.setTransform(0, 0, 0.6, 0.6);
+
+          // change position
+          container.x = renderer.width/2;
+          container.y = renderer.height/2;
+
+          container.backgroundColor = 0xffffff;
           //render stage
           renderer.render(stage);
         }
