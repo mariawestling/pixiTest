@@ -20,8 +20,8 @@
         var renderer = PIXI.autoDetectRenderer(256, 256, {antialias: false, transparent: false, resolution: 1}
         );
 
-        // create a container object
-        var container = new PIXI.Container();
+        // create a container object called the Stage
+        var stage = new PIXI.Container();
 
         // add the canvas to the HTML document
         document.body.appendChild(renderer.view);
@@ -39,18 +39,14 @@
             PIXI.loader.resources["objects/tree.png"].texture
           );
           // add tree to stage
-          renderer.stage.addChild(container);
-          container.addChild(tree);
-
+          stage.addChild(tree);
 
           // change size
-          container.setTransform(0, 0, 0.6, 0.6);
+          tree.setTransform(0, 0, 0.6, 0.6);
 
-          // change position
-          container.x = renderer.width/2;
-          container.y = renderer.height/2;
-
-          container.backgroundColor = 0xffffff;
+          // change stage sizes
+          stage.x = renderer.width/2;
+          stage.y = renderer.height/2;
           //render stage
           renderer.render(stage);
         }
