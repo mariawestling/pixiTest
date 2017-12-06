@@ -49,6 +49,19 @@
           //render stage
           renderer.render(stage);
         }
+
+        function resize(){
+          // change view size to whole screen
+          renderer.view.style.position = "absolute";
+          renderer.view.style.display = "block";
+          renderer.autoResize = true;
+          renderer.resize(window.innerWidth, window.innerHeight);
+
+          // change stage sizes
+          stage.x = renderer.width/2;
+          stage.y = renderer.height/2;
+        }
+
         // scale to window size
         window.addEventListener("resize", function(event) {
           var scale = scaleToWindow(renderer.view);
@@ -62,19 +75,7 @@
         // stage.addChild(sprite);
 
 
-        function resize(){
-          // change view size to whole screen
-          renderer.view.style.position = "absolute";
-          renderer.view.style.display = "block";
-          renderer.autoResize = true;
-          renderer.resize(window.innerWidth, window.innerHeight);
 
-          // change stage sizes
-          stage.x = renderer.width/2;
-          stage.y = renderer.height/2;
-
-
-        }
 
         resize();
         // tell the renderer to render the Stage
