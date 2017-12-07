@@ -54,19 +54,21 @@
           var treeBranch4 = new PIXI.Sprite(
             PIXI.loader.resources["objects/treeBranch4.png"].texture
           );
-          // add tree to stage
-          stage.addChild(treeTrunk);
-          stage.addChild(treeBranch1);
-          stage.addChild(treeBranch2);
-          stage.addChild(treeBranch3);
-          stage.addChild(treeBranch4);
 
+          var group = new PIXI.Container();
+          // add tree to stage
+          group.addChild(treeTrunk);
+          group.addChild(treeBranch1);
+          group.addChild(treeBranch2);
+          group.addChild(treeBranch3);
+          group.addChild(treeBranch4);
+          stage.addChild(group);
           // change size
-          //treeTrunk.setTransform(0, 0, 0.6, 0.6);
+          group.setTransform(0, 0, 0.6, 0.6);
 
           //treeTrunk.anchor.x = 0.5;
           //treeTrunk.anchor.y = 0.5;
-          treeTrunk.rotation = 0.5;
+          group.rotation = 0.5;
 
 
 
