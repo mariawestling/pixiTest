@@ -87,17 +87,17 @@
           //render stage
           renderer.render(stage);
         }
+        var ticker = 0;
 
-        var tick = 0;
-
-        function ticker() {
-          while(tick < 100){
-
-          group.direction += group.turningSpeed * 0.5;
-          group.rotation = -group.direction + Math.PI;
-
-          tick += 0.1;
-          }
+        function continue(){
+          setTimeOut(
+            group.direction += group.turningSpeed * 0.5;
+            group.rotation = -group.direction + Math.PI;
+            ticker += 0.5;
+            if (ticker < 100){
+              continue();
+            }
+          ), 3000);
         }
 
         function resize(){
