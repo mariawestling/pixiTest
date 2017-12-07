@@ -90,13 +90,15 @@
 
         var tick = 0;
 
-        ticker.add(function() {
+        function ticker() {
+          while(tick < 100){
 
           group.direction += group.turningSpeed * 0.5;
           group.rotation = -group.direction + Math.PI;
 
           tick += 0.1;
-        });
+          }
+        }
 
         function resize(){
           // change view size to whole screen
