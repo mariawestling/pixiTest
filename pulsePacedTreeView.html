@@ -62,15 +62,27 @@
           group.addChild(treeBranch2);
           group.addChild(treeBranch3);
           group.addChild(treeBranch4);
-          stage.addChild(group);
+
           // change size
           group.setTransform(0, 0, 0.6, 0.6);
 
-          //treeTrunk.anchor.x = 0.5;
+          // anchor point to center texture on sprite
+          group.anchor.set(0.5);
           //treeTrunk.anchor.y = 0.5;
           //group.rotation = 0.5;
 
+          // direction in radians
+          group.direction = 0.5;
 
+          //direction of the sprite over time
+          group.turningSpeed = 5;
+
+          //speed
+          group.speed = 67;
+
+          group.offset = 600;
+
+          stage.addChild(group);
 
           //render stage
           renderer.render(stage);
