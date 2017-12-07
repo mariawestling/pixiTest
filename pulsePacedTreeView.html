@@ -90,7 +90,7 @@
         var ticker = 0;
 
         function continueFunc(){
-          setTimeOut(function(){
+          setTimeout(function(){
             group.direction += group.turningSpeed * 0.5;
             group.rotation = -group.direction + Math.PI;
             ticker += 0.5;
