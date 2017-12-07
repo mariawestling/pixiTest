@@ -89,18 +89,18 @@
         }
         var ticker = 0;
 
-        function continueFunc(){
+        function continueFunc(group){
           setTimeout(function(){
             group.direction += group.turningSpeed * 0.5;
             group.rotation = -group.direction + Math.PI;
             ticker += 0.5;
             if (ticker < 100){
-              continueFunc();
+              continueFunc(group);
             }
           }, 3000);
         }
 
-        continueFunc();
+        continueFunc(group);
 
         function resize(){
           // change view size to whole screen
