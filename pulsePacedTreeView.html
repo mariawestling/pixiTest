@@ -88,6 +88,16 @@
           renderer.render(stage);
         }
 
+        var tick = 0;
+
+        app.ticker.add(function() {
+
+          group.direction += group.turningSpeed * 0.5;
+          group.rotation = -group.direction + Math.PI;
+
+          tick += 0.1;
+        });
+
         function resize(){
           // change view size to whole screen
           renderer.view.style.position = "absolute";
