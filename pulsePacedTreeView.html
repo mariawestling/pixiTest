@@ -43,12 +43,24 @@
           //.load(setup);
 
         function setup() {
-          var tree = new PIXI.Sprite(
-            PIXI.loader.resources["objects/tree.png"].texture
+          var treeTrunk = new PIXI.Sprite(
+            PIXI.loader.resources["objects/treeTrunk.png"].texture
+          var treeBranch1 = new PIXI.Sprite(
+            PIXI.loader.resources["objects/treeBranch1.png"].texture
+          var treeBranch2 = new PIXI.Sprite(
+            PIXI.loader.resources["objects/treeBranch2.png"].texture
+          var treeBranch3 = new PIXI.Sprite(
+            PIXI.loader.resources["objects/treeBranch3.png"].texture
+          var treeBranch4 = new PIXI.Sprite(
+            PIXI.loader.resources["objects/treeBranch4.png"].texture
           );
           // add tree to stage
-          stage.addChild(tree);
-
+          stage.addChild(treeTrunk);
+          stage.addChild(treeBranch1);
+          stage.addChild(treeBranch2);
+          stage.addChild(treeBranch3);
+          stage.addChild(treeBranch4);
+          
           // change size
           tree.setTransform(0, 0, 0.6, 0.6);
 
