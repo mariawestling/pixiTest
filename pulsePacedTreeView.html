@@ -31,8 +31,16 @@
 
         // create sprites
         PIXI.loader
-          .add("objects/tree.png")
+          .add([
+            "objects/treeTrunk.png",
+            "objects/treeBranch1.png",
+            "objects/treeBranch2.png",
+            "objects/treeBranch3.png",
+            "objects/treeBranch4.png"
+          ])
           .load(setup);
+          //.add("objects/tree.png")
+          //.load(setup);
 
         function setup() {
           var tree = new PIXI.Sprite(
@@ -65,7 +73,7 @@
           var scale = scaleToWindow(renderer.view);
 
           resize();
-          
+
           // change stage sizes
           stage.x = renderer.width/2;
           stage.y = renderer.height/2;
