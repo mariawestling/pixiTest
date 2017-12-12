@@ -14,6 +14,7 @@
 <title>treeAni</title>
 <!-- write your code here -->
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
 <script src="treeAni.js"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
@@ -21,7 +22,7 @@ function init() {
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
 	dom_overlay_container = document.getElementById("dom_overlay_container");
-	var comp=AdobeAn.getComposition("3800B2336C6F4D08B07B9DF2B4DCFDB2");
+	var comp=AdobeAn.getComposition("treeAni");
 	var lib=comp.getLibrary();
 	handleComplete({},comp);
 }
@@ -29,6 +30,8 @@ function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
 	var lib=comp.getLibrary();
 	var ss=comp.getSpriteSheet();
+
+
 	exportRoot = new lib.treeAni();
 	stage = new lib.Stage(canvas);
 	//Registers the "tick" event listener.
@@ -76,6 +79,8 @@ function handleComplete(evt,comp) {
 	makeResponsive(false,'both',false,1);
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
+	console.log("ss", ss);
+
 }
 </script>
 <!-- write your code here -->

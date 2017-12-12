@@ -1,5 +1,7 @@
 (function (cjs, an) {
 
+	console.log("an", an);
+
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [];
@@ -347,7 +349,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 p.nominalBounds = new cjs.Rectangle(389.8,430.2,941.8,662.8);
 // library properties:
 lib.properties = {
-	id: '3800B2336C6F4D08B07B9DF2B4DCFDB2',
+	id: 'treeAni',
 	width: 860,
 	height: 666,
 	fps: 24,
@@ -370,10 +372,10 @@ p.setAutoPlay = function(autoPlay) {
 }
 p.play = function() { this.tickEnabled = true; this.getChildAt(0).gotoAndPlay(this.getTimelinePosition()) }
 p.stop = function(ms) { if(ms) this.seek(ms); this.tickEnabled = false; }
-p.seek = function(ms) { this.tickEnabled = true; this.getChildAt(0).gotoAndStop(lib.properties.fps * ms / 10); }
-p.getDuration = function() { return this.getChildAt(0).totalFrames / lib.properties.fps * 10; }
+p.seek = function(ms) { this.tickEnabled = true; this.getChildAt(0).gotoAndStop(lib.properties.fps * ms / 1000); }
+p.getDuration = function() { return this.getChildAt(0).totalFrames / lib.properties.fps * 1000; }
 
-p.getTimelinePosition = function() { return this.getChildAt(0).currentFrame / lib.properties.fps * 10; }
+p.getTimelinePosition = function() { return this.getChildAt(0).currentFrame / lib.properties.fps * 1000; }
 
 an.bootcompsLoaded = an.bootcompsLoaded || [];
 if(!an.bootstrapListeners) {
@@ -390,12 +392,14 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['3800B2336C6F4D08B07B9DF2B4DCFDB2'] = {
+an.compositions['treeAni'] = {
 	getStage: function() { return exportRoot.getStage(); },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },
 	getImages: function() { return img; }
 };
+
+
 
 an.compositionLoaded = function(id) {
 	an.bootcompsLoaded.push(id);
@@ -408,6 +412,13 @@ an.getComposition = function(id) {
 	return an.compositions[id];
 }
 
+ss.getAnimation = function() {
+	return this._data["treeAni"];
+}
+
+console.log(ss.getAnimation());
+//console.log(ss.getAnimation("treeAni"))
+//console.log("an", an);
 
 
 })(createjs = createjs||{}, AdobeAn = AdobeAn||{});

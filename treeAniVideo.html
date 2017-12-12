@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<!--
+Used ffmpeg to convert .gif to .mp4 so we can control it as a <video></video> instead
+idea from: https://rigor.com/blog/2015/12/optimizing-animated-gifs-with-html5-video
+to install: $brew install ffmpeg
+to convert: ffmpeg -i treeAni.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" treeAni.mp4
+
+movflags – This option optimizes the structure of the MP4 file so the browser
+          can load it as quickly as possible.
+pix_fmt – MP4 videos store pixels in different formats. We include this option
+          to specify a specific format which has maximum compatibility across all browsers.
+            (This is actually the chroma subsampling)
+vf – MP4 videos using H.264 need to have a dimensions that are divisible by 2.
+    This option ensures that’s the case. Don’t worry, we can still display this
+     video at any dimensions you want.
+-->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="Swingy Twiggy" content="Adobe_Animate_CC">
+    <title>Swingy Twiggy</title>
+  </head>
+
+  <body>
+    <video onClick=speedChange(this) autoplay="autoplay" loop="loop" width="400" height="300">
+      <source src="treeAni.mp4" type="video/mp4" />
+      <img src="treeAni.gif" width="400" height="300" />
+    </video>
+  </body>
+  <script>
+    let speedChange = (vid) => vid.playbackRate += 0.5;
+  </script>
+
+</html>
